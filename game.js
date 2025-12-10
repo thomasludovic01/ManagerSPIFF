@@ -1,10 +1,10 @@
 class SPIFFManager {
     constructor() {
         this.managers = {
-            manager1: { name: 'Pierre', metrics: { sqo: false, progression: false, meetings: false, mql: false } },
-            manager2: { name: 'Hélie', metrics: { sqo: false, progression: false, meetings: false, mql: false } },
-            manager3: { name: 'Simon', metrics: { sqo: false, progression: false, meetings: false, mql: false } },
-            manager4: { name: 'Toni', metrics: { sqo: false, progression: false, meetings: false, mql: false } }
+            manager1: { name: 'Manager Alpha', metrics: { sqo: false, progression: false, meetings: false, mql: false } },
+            manager2: { name: 'Manager Beta', metrics: { sqo: false, progression: false, meetings: false, mql: false } },
+            manager3: { name: 'Manager Gamma', metrics: { sqo: false, progression: false, meetings: false, mql: false } },
+            manager4: { name: 'Manager Delta', metrics: { sqo: false, progression: false, meetings: false, mql: false } }
         };
         
         this.init();
@@ -80,14 +80,18 @@ class SPIFFManager {
         // Sort by completion
         managerStats.sort((a, b) => b.completed - a.completed);
         
+        // Define prizes
+        const prizes = ['$900', '$500', '$266', '$0'];
+        
         standings.innerHTML = managerStats.map((manager, index) => {
             const medal = index === 0 ? '🥇' : index === 1 ? '🥈' : index === 2 ? '🥉' : '🏃';
-            const winnerClass = manager.completed === 4 ? 'winner' : '';
+            const prize = prizes[index] || '$0';
+            const placeClass = index === 0 ? 'first-place' : index === 1 ? 'second-place' : index === 2 ? 'third-place' : '';
             
             return `
-                <div class="standings-item ${winnerClass}">
+                <div class="standings-item ${placeClass}">
                     <span>${medal} ${manager.name}</span>
-                    <span>${manager.completed}/4 (${manager.percentage}%)</span>
+                    <span>${manager.completed}/4 (${manager.percentage}%) - ${prize}</span>
                 </div>
             `;
         }).join('');
