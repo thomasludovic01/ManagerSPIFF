@@ -91,7 +91,7 @@ class SPIFFManager {
             return `
                 <div class="standings-item ${placeClass}">
                     <span>${medal} ${manager.name}</span>
-                    <span>${manager.completed}/4 (${manager.percentage}%) - ${prize}</span>
+                    <span>${manager.completed}/4 (${manager.percentage}%)</span>
                 </div>
             `;
         }).join('');
