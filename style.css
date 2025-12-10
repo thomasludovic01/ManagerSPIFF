@@ -8,25 +8,88 @@
 
 body {
     font-family: 'Orbitron', monospace;
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    background: #0a0a0a;
     color: #00ff41;
     min-height: 100vh;
     padding: 20px;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Dynamic Animated Background */
+.animated-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+}
+
+.animated-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 20% 80%, rgba(0, 255, 65, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 107, 53, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(255, 255, 0, 0.1) 0%, transparent 50%);
+    animation: bgFloat 20s ease-in-out infinite;
+}
+
+.animated-bg::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        linear-gradient(45deg, transparent 30%, rgba(0, 255, 65, 0.03) 50%, transparent 70%),
+        linear-gradient(-45deg, transparent 30%, rgba(255, 107, 53, 0.03) 50%, transparent 70%);
+    animation: bgShift 15s linear infinite;
+}
+
+@keyframes bgFloat {
+    0%, 100% { 
+        transform: translateY(0px) rotate(0deg);
+        opacity: 0.5;
+    }
+    33% { 
+        transform: translateY(-20px) rotate(1deg);
+        opacity: 0.8;
+    }
+    66% { 
+        transform: translateY(-10px) rotate(-1deg);
+        opacity: 0.6;
+    }
+}
+
+@keyframes bgShift {
+    0% { transform: translateX(-100%) translateY(-100%); }
+    100% { transform: translateX(100%) translateY(100%); }
 }
 
 .game-container {
     max-width: 1200px;
     margin: 0 auto;
+    position: relative;
+    z-index: 1;
 }
 
 .game-header {
     text-align: center;
     margin-bottom: 30px;
     padding: 20px;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.8);
     border: 3px solid #00ff41;
     border-radius: 10px;
     box-shadow: 0 0 20px #00ff41;
+    backdrop-filter: blur(10px);
 }
 
 .pixel-title {
@@ -55,17 +118,19 @@ body {
 }
 
 .manager-card {
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.85);
     border: 2px solid #00ff41;
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 0 15px rgba(0, 255, 65, 0.3);
     transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
 }
 
 .manager-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 5px 25px rgba(0, 255, 65, 0.5);
+    background: rgba(0, 0, 0, 0.9);
 }
 
 .manager-header {
@@ -99,7 +164,7 @@ body {
 }
 
 .puzzle-piece {
-    background: #333;
+    background: rgba(51, 51, 51, 0.8);
     border: 2px solid #666;
     padding: 10px;
     text-align: center;
@@ -107,6 +172,7 @@ body {
     font-size: 0.8em;
     transition: all 0.3s ease;
     cursor: default;
+    backdrop-filter: blur(3px);
 }
 
 .puzzle-piece.unlocked {
@@ -127,7 +193,7 @@ body {
 .progress-bar {
     width: 100%;
     height: 20px;
-    background: #333;
+    background: rgba(51, 51, 51, 0.8);
     border: 2px solid #00ff41;
     border-radius: 10px;
     overflow: hidden;
@@ -164,7 +230,7 @@ body {
 }
 
 .admin-controls button {
-    background: #1a1a2e;
+    background: rgba(26, 26, 46, 0.8);
     color: #00ff41;
     border: 1px solid #00ff41;
     padding: 8px;
@@ -173,6 +239,7 @@ body {
     font-size: 0.7em;
     cursor: pointer;
     transition: all 0.2s ease;
+    backdrop-filter: blur(3px);
 }
 
 .admin-controls button:hover {
@@ -186,11 +253,12 @@ body {
 }
 
 .leaderboard {
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.85);
     border: 2px solid #ffff00;
     border-radius: 10px;
     padding: 20px;
     text-align: center;
+    backdrop-filter: blur(10px);
 }
 
 .leaderboard h3 {
@@ -208,12 +276,13 @@ body {
 }
 
 .prize-tier {
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.8);
     padding: 10px 15px;
     border-radius: 8px;
     font-weight: bold;
     border: 2px solid;
     animation: prize-glow 3s ease-in-out infinite alternate;
+    backdrop-filter: blur(5px);
 }
 
 .prize-tier.first {
@@ -253,6 +322,7 @@ body {
     background: rgba(255, 255, 255, 0.1);
     border-radius: 5px;
     border-left: 4px solid #00ff41;
+    backdrop-filter: blur(3px);
 }
 
 .standings-item.first-place {
