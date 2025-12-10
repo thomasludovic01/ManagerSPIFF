@@ -16,6 +16,44 @@ body {
     overflow-x: hidden;
 }
 
+/* Additional Laser Effects */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(135deg, 
+            transparent 0%, 
+            rgba(255, 255, 0, 0.3) 25%, 
+            rgba(255, 255, 0, 0.6) 50%, 
+            rgba(255, 255, 0, 0.3) 75%, 
+            transparent 100%
+        );
+    animation: diagonalSweep 10s ease-in-out infinite;
+    pointer-events: none;
+    z-index: -1;
+}
+
+@keyframes diagonalSweep {
+    0% { 
+        transform: translateX(-150%) translateY(-150%) rotate(45deg);
+        opacity: 0;
+    }
+    20% { 
+        opacity: 1;
+    }
+    80% { 
+        opacity: 1;
+    }
+    100% { 
+        transform: translateX(150%) translateY(150%) rotate(45deg);
+        opacity: 0;
+    }
+}
+
 /* Ultra Dynamic 8-Bit Style Background */
 .animated-bg {
     position: fixed;
@@ -39,11 +77,22 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: 
-        linear-gradient(90deg, transparent 0%, rgba(0, 255, 65, 0.1) 20%, transparent 40%),
-        linear-gradient(45deg, transparent 0%, rgba(255, 107, 53, 0.1) 30%, transparent 60%),
-        linear-gradient(-45deg, transparent 20%, rgba(255, 255, 0, 0.1) 50%, transparent 80%);
-    animation: laserSweep 8s linear infinite;
+    background: 
+        linear-gradient(90deg, 
+            transparent 0%, 
+            rgba(0, 255, 65, 0.4) 10%, 
+            rgba(0, 255, 65, 0.8) 20%, 
+            rgba(0, 255, 65, 0.4) 30%, 
+            transparent 40%
+        ),
+        linear-gradient(45deg, 
+            transparent 20%, 
+            rgba(255, 107, 53, 0.5) 40%, 
+            rgba(255, 107, 53, 0.9) 50%, 
+            rgba(255, 107, 53, 0.5) 60%, 
+            transparent 80%
+        );
+    animation: laserSweep 6s linear infinite;
 }
 
 .animated-bg::after {
@@ -392,37 +441,39 @@ body {
     to { box-shadow: 0 0 15px #ffff00; }
 }
 
-/* Floating 8-bit particles */
+/* Enhanced Floating 8-bit particles */
 .game-container::before {
-    content: '⬆ ⬇ ← → ◆ ◇ ● ○ ▲ ▼ ◀ ▶';
+    content: '⬆ ⬇ ← → ◆ ◇ ● ○ ▲ ▼ ◀ ▶ ⬆ ⬇ ← → ◆ ◇ ● ○ ▲ ▼ ◀ ▶ ⬆ ⬇ ← → ◆ ◇ ● ○ ▲ ▼ ◀ ▶';
     position: fixed;
-    top: 0;
+    top: -100px;
     left: 0;
     width: 100%;
-    height: 100%;
-    font-size: 12px;
-    color: rgba(0, 255, 65, 0.2);
+    height: calc(100vh + 200px);
+    font-size: 16px;
+    color: rgba(0, 255, 65, 0.5);
     pointer-events: none;
     z-index: 0;
-    animation: particleRain 25s linear infinite;
-    letter-spacing: 100px;
-    line-height: 80px;
+    animation: particleRain 20s linear infinite;
+    letter-spacing: 80px;
+    line-height: 60px;
+    text-shadow: 0 0 5px rgba(0, 255, 65, 0.8);
 }
 
 .game-container::after {
-    content: '★ ✦ ✧ ◆ ◇ ▣ ▤ ▥ ▦ ▧ ▨ ▩';
+    content: '★ ✦ ✧ ◆ ◇ ▣ ▤ ▥ ▦ ▧ ▨ ▩ ★ ✦ ✧ ◆ ◇ ▣ ▤ ▥ ▦ ▧ ▨ ▩ ★ ✦ ✧ ◆ ◇ ▣ ▤ ▥ ▦ ▧ ▨ ▩';
     position: fixed;
-    top: 0;
+    top: -100px;
     left: 0;
     width: 100%;
-    height: 100%;
-    font-size: 8px;
-    color: rgba(255, 107, 53, 0.15);
+    height: calc(100vh + 200px);
+    font-size: 12px;
+    color: rgba(255, 107, 53, 0.4);
     pointer-events: none;
     z-index: 0;
-    animation: particleRain 35s linear infinite reverse;
-    letter-spacing: 150px;
-    line-height: 120px;
+    animation: particleRain 30s linear infinite reverse;
+    letter-spacing: 120px;
+    line-height: 90px;
+    text-shadow: 0 0 3px rgba(255, 107, 53, 0.6);
 }
 
 @keyframes particleRain {
