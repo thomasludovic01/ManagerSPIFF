@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manager SPIFF Challenge - 8-Bit Quest</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <header class="game-header">
+            <h1 class="pixel-title">🏆 MANAGER QUEST 2024 🏆</h1>
+            <p class="subtitle">Unlock all puzzle pieces to claim victory!</p>
+        </header>
+
+        <div class="managers-grid">
+            <!-- Manager 1 -->
+            <div class="manager-card" id="manager1">
+                <div class="manager-header">
+                    <h2 class="manager-name">Manager Alpha</h2>
+                    <div class="score">0/4 Pieces</div>
+                </div>
+                <div class="puzzle-container">
+                    <div class="puzzle-piece" data-metric="sqo">SQO/UC Target</div>
+                    <div class="puzzle-piece" data-metric="progression">15% Progression</div>
+                    <div class="puzzle-piece" data-metric="meetings">5 SF Meetings/SDR</div>
+                    <div class="puzzle-piece" data-metric="mql">5%+ MQL Rate</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 0%"></div>
+                </div>
+                <div class="admin-controls">
+                    <button onclick="toggleMetric('manager1', 'sqo')">Toggle SQO</button>
+                    <button onclick="toggleMetric('manager1', 'progression')">Toggle 15%</button>
+                    <button onclick="toggleMetric('manager1', 'meetings')">Toggle Meetings</button>
+                    <button onclick="toggleMetric('manager1', 'mql')">Toggle MQL</button>
+                </div>
+            </div>
+
+            <!-- Manager 2 -->
+            <div class="manager-card" id="manager2">
+                <div class="manager-header">
+                    <h2 class="manager-name">Manager Beta</h2>
+                    <div class="score">0/4 Pieces</div>
+                </div>
+                <div class="puzzle-container">
+                    <div class="puzzle-piece" data-metric="sqo">SQO/UC Target</div>
+                    <div class="puzzle-piece" data-metric="progression">15% Progression</div>
+                    <div class="puzzle-piece" data-metric="meetings">5 SF Meetings/SDR</div>
+                    <div class="puzzle-piece" data-metric="mql">5%+ MQL Rate</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 0%"></div>
+                </div>
+                <div class="admin-controls">
+                    <button onclick="toggleMetric('manager2', 'sqo')">Toggle SQO</button>
+                    <button onclick="toggleMetric('manager2', 'progression')">Toggle 15%</button>
+                    <button onclick="toggleMetric('manager2', 'meetings')">Toggle Meetings</button>
+                    <button onclick="toggleMetric('manager2', 'mql')">Toggle MQL</button>
+                </div>
+            </div>
+
+            <!-- Manager 3 -->
+            <div class="manager-card" id="manager3">
+                <div class="manager-header">
+                    <h2 class="manager-name">Manager Gamma</h2>
+                    <div class="score">0/4 Pieces</div>
+                </div>
+                <div class="puzzle-container">
+                    <div class="puzzle-piece" data-metric="sqo">SQO/UC Target</div>
+                    <div class="puzzle-piece" data-metric="progression">15% Progression</div>
+                    <div class="puzzle-piece" data-metric="meetings">5 SF Meetings/SDR</div>
+                    <div class="puzzle-piece" data-metric="mql">5%+ MQL Rate</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 0%"></div>
+                </div>
+                <div class="admin-controls">
+                    <button onclick="toggleMetric('manager3', 'sqo')">Toggle SQO</button>
+                    <button onclick="toggleMetric('manager3', 'progression')">Toggle 15%</button>
+                    <button onclick="toggleMetric('manager3', 'meetings')">Toggle Meetings</button>
+                    <button onclick="toggleMetric('manager3', 'mql')">Toggle MQL</button>
+                </div>
+            </div>
+
+            <!-- Manager 4 -->
+            <div class="manager-card" id="manager4">
+                <div class="manager-header">
+                    <h2 class="manager-name">Manager Delta</h2>
+                    <div class="score">0/4 Pieces</div>
+                </div>
+                <div class="puzzle-container">
+                    <div class="puzzle-piece" data-metric="sqo">SQO/UC Target</div>
+                    <div class="puzzle-piece" data-metric="progression">15% Progression</div>
+                    <div class="puzzle-piece" data-metric="meetings">5 SF Meetings/SDR</div>
+                    <div class="puzzle-piece" data-metric="mql">5%+ MQL Rate</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 0%"></div>
+                </div>
+                <div class="admin-controls">
+                    <button onclick="toggleMetric('manager4', 'sqo')">Toggle SQO</button>
+                    <button onclick="toggleMetric('manager4', 'progression')">Toggle 15%</button>
+                    <button onclick="toggleMetric('manager4', 'meetings')">Toggle Meetings</button>
+                    <button onclick="toggleMetric('manager4', 'mql')">Toggle MQL</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="leaderboard">
+            <h3>🏁 Current Standings</h3>
+            <div id="standings"></div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
