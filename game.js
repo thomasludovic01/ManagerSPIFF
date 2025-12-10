@@ -1,10 +1,10 @@
 class SPIFFManager {
     constructor() {
         this.managers = {
-            manager1: { name: 'Manager Alpha', metrics: { sqo: false, progression: false, meetings: false, mql: false } },
-            manager2: { name: 'Manager Beta', metrics: { sqo: false, progression: false, meetings: false, mql: false } },
-            manager3: { name: 'Manager Gamma', metrics: { sqo: false, progression: false, meetings: false, mql: false } },
-            manager4: { name: 'Manager Delta', metrics: { sqo: false, progression: false, meetings: false, mql: false } }
+            manager1: { name: 'Hélie', metrics: { sqo: false, progression: false, meetings: false, mql: false } },
+            manager2: { name: 'Pierre', metrics: { sqo: false, progression: false, meetings: false, mql: false } },
+            manager3: { name: 'Simon', metrics: { sqo: false, progression: false, meetings: false, mql: false } },
+            manager4: { name: 'Toni', metrics: { sqo: false, progression: false, meetings: false, mql: false } }
         };
         
         this.init();
